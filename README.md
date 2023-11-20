@@ -103,8 +103,8 @@ git clone https://github.com/Alienor134/CSL-forge
 </p>
 
 
-8. type: **#d[11,0,0,2,0,1,0,0,255]:xxxx**
-   You should see a character sequence appear. Then type **#b:xxxx** to start the experiment.
+8. type: **#d[11,0,0,2,0,1,0,255]:xxxx**
+   You should see a character sequence appear. Then type **#b[100,0]:xxxx** to start the experiment.
    You should see the LEDs blink (frequency 0.5Hz). To stop the blinking, type **#e:xxxx**
 
 ## Install the library
