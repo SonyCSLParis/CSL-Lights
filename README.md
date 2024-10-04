@@ -6,7 +6,7 @@ The codes rely on [Arduino](https://www.arduino.cc/) and [pyserial](https://gith
 
 
 ## Pre-requisites
-- Install RomiSerial and the Arduino software XXXX
+- Install [RomiSerial](https://github.com/SonyCSLParis/CSL-Serial?tab=readme-ov-file) and the [Arduino](https://www.arduino.cc/en/software) software 
 - The light sources are already set-up. Refer to the example gallery for ideas. 
 - The light sources can be controlled by a trigger, or pulse-width modulated signal (PWM) 
 - The code was tested on Windows and Linux
@@ -29,7 +29,7 @@ Here are the different hardware equipment the
 |----------|:-------------:|:-------------:|  
 | Arduino | 1.8.13 | [download](https://www.arduino.cc/en/software)
 | Python  | 3 |[install](https://github.com/Alienor134/Teaching/blob/master/Python/Installing_Anaconda_creating_environment.md)
-| CSL-serial | 1.0 | [install](XXX)
+| CSL-serial | 1.0 | [install](https://github.com/SonyCSLParis/CSL-Serial?tab=readme-ov-file)
 
 
 ## Codes and files provided :chart_with_upwards_trend:
