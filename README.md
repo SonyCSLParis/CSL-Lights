@@ -103,7 +103,7 @@ git clone https://github.com/Alienor134/CSL-forge
 </p>
 
 
-8. type: **#d[11,0,0,2,0,1,0,255]:xxxx**
+8. Test the control command: type: **#d[11,0,0,1,0,2,0,255]:xxxx**. It is a command to generate on and off output on pin 11. The pin stays on for 1 seconds with a period of 2 seconds, at intensity 255. It is later on embeded in a Pyton code for clarity. 
    You should see a character sequence appear. Then type **#b[100,0]:xxxx** to start the experiment.
    You should see the LEDs blink (frequency 0.5Hz). To stop the blinking, type **#e:xxxx**
 
