@@ -53,13 +53,17 @@ class CircularBuffer
 {
 protected:
 #if defined(ARDUINO_AVR_UNO)
-        static const int8_t length_ = 16;
+        static const int length_ = 16;
 #elif defined(ARDUINO_SAM_DUE)
-        static const int8_t length_ = 64;
+        static const int length_ = 64;
+#elif defined(ESP32)
+        static const int length_ = 128;
+#else
+        static const int length_ = 32;  // Default fallback
 #endif
         
-        int8_t readpos_;
-        int8_t writepos_;
+        int readpos_;
+        int writepos_;
         AnalogMeasurement data_[length_];
         
 public:

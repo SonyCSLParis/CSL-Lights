@@ -24,7 +24,7 @@ import time
 import json
 import argparse
 
-from CSLserial import ControlSerial
+from ControlSerial import ControlSerial
 
 
 class Measurement():
@@ -160,7 +160,7 @@ if __name__ == "__main__":
 ################ PARAMETERS
 
     parser = argparse.ArgumentParser(prog = 'SwitchLEDs')
-    parser.add_argument('--port', default='COM5')
+    parser.add_argument('--port', default='COM3')
     args = parser.parse_args()
     
     ## ARDUINO connection
@@ -170,7 +170,7 @@ if __name__ == "__main__":
     time.sleep(2.0)
 
     # blue LED
-    blue_param = {'pin': 3,
+    blue_param = {'pin': 13,
             'offset': 500, #ms
             'period': 5*1000, #ms
             'duration': 2*1000, #ms
@@ -204,14 +204,14 @@ if __name__ == "__main__":
     LEDs.add_digital_pulse(blue_param)
     LEDs.add_digital_pulse(purple_param)
     LEDs.set_secondary(purple_param, blue_param)
-    LEDs.add_analog_measure(analog_param_1)
-    LEDs.add_analog_measure(analog_param_2)
+    #LEDs.add_analog_measure(analog_param_1)
+    #LEDs.add_analog_measure(analog_param_2)
     LEDs.start_measurement(30*1000)
 
-    start = time.time()
-    while time.time() < start + 30.0:
-        m = LEDs.get_measurement()
-        if m: print(f't={m.timestamp}, pin={m.pin}, value={m.value}')
-        time.sleep(0.02)
+    #start = time.time()
+    #while time.time() < start + 30.0:
+    #    m = LEDs.get_measurement()
+    #    if m: print(f't={m.timestamp}, pin={m.pin}, value={m.value}')
+    #    time.sleep(0.02)
 
     LEDs.wait()

@@ -104,6 +104,7 @@ void setup()
                 ;
 #endif
 
+
         IBoard& board = BoardFactory::get();
         ITimer& timer = board.get_timer();
         timer.init();
@@ -120,7 +121,13 @@ void loop()
 
 void send_info(IRomiSerial *romiSerial, int16_t *args, const char *string_arg)
 {
-        romiSerial->send("[\"LightControl\",\"0.1\"]"); 
+        romiSerial->send("LED Control v0.1");
+        romiSerial->send("Commands:");
+        romiSerial->send("create pulse: #d[13,0,0,0,500,1,0,255]");
+        romiSerial->send("pin, delay (s),delay (ms), time high (s), time high (ms), period (s), period (ms), val (0-255)");
+        romiSerial->send("start pulse: #b[1000, 0]");
+        romiSerial->send("duration (s), duration (ms)");
+        romiSerial->send("#e - stop, #R - reset, #A - status");
 }
 
 void handle_add_digital_pulse(IRomiSerial *romiSerial, int16_t *args,
@@ -201,6 +208,29 @@ int8_t number_to_analog_pin(int8_t number)
         case 0:
                 analog_pin = A0;
                 break;
+#if defined(ESP32)
+        case 1:
+                analog_pin = A3;  // GPIO39
+                break;
+        case 2:
+                analog_pin = A6;  // GPIO34
+                break;
+        case 3:
+                analog_pin = A7;  // GPIO35
+                break;
+        case 4:
+                analog_pin = A4;  // GPIO32
+                break;
+        case 5:
+                analog_pin = A5;  // GPIO33
+                break;
+        case 6:
+                analog_pin = A18; // GPIO25
+                break;
+        case 7:
+                analog_pin = A19; // GPIO26
+                break;
+#else
         case 1:
                 analog_pin = A1;
                 break;
@@ -225,6 +255,7 @@ int8_t number_to_analog_pin(int8_t number)
         case 7:
                 analog_pin = A7;
                 break;
+#endif
 #endif
 #if defined(A8)
         case 8:

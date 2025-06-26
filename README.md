@@ -1,4 +1,4 @@
-# CSL-light
+# ControlLight
 
 This repository demonstrates how to control light sources with Arduino and Python, and output a trigger signal to synchronize a camera. 
 
@@ -29,16 +29,16 @@ Here are the different hardware equipment the
 |----------|:-------------:|:-------------:|  
 | Arduino | 1.8.13 | [download](https://www.arduino.cc/en/software)
 | Python  | 3 |[install](https://github.com/Alienor134/Teaching/blob/master/Python/Installing_Anaconda_creating_environment.md)
-| CSL-serial | 1.0 | [install](https://github.com/SonyCSLParis/CSL-Serial?tab=readme-ov-file)
+| ControlSerial | 1.0 | [install](https://github.com/SonyCSLParis/CSL-Serial?tab=readme-ov-file)
 
 
 ## Codes and files provided :chart_with_upwards_trend:
 
-[CSLlight](CSLlight/CSLlight.py) can be used the following way:
+[ControlLight](ControlLight/ControlLight.py) can be used the following way:
 
 
 ```python
-from CSLlight import ControlLight
+from ControlLight import ControlLight
 
 arduino_port = "COM5"
 sec = 1000 #conversion ms to s
@@ -90,7 +90,7 @@ git clone https://github.com/Alienor134/CSL-forge
 <a> <img src="./Images/2023-01-30-10-16-46.png" width="300"></a>
 </p>
 
-5. Press the check sign. If an error related to "RomiSerial" appears, verify that you have properly followed the instructions in the CSL-Serial repository. 
+5. Press the check sign. If an error related to "RomiSerial" appears, verify that you have properly followed the instructions in the ControlSerial repository. 
 <p align="center">
 <a> <img src="./Images/2023-04-07-18-48-09.png" width="750"></a>
 </p>
@@ -110,19 +110,19 @@ git clone https://github.com/Alienor134/CSL-forge
 ## Install the library
 
 ```
-cd CSL-light
+cd ControlLight
 python setup.py develop
 ```
 1. Try running the code: 
 
-On Windows: ```python  CSLlight/CSLlight.py --port COMx``` by replacing "COMx" by the correct COM port identified in step 1. 
+On Windows: ```python  ControlLight/ControlLight.py --port COMx``` by replacing "COMx" by the correct COM port identified in step 1. 
 
 
-On Linux: ```python3  CSLlight/CSLlight.py --port /dev/ttyACM0```
+On Linux: ```python3  ControlLight/ControlLight.py --port /dev/ttyACM0```
 
 You should see the LED blink. 
 
-2. Open the python code to see how it works. Open the python code [CSLlight.py](CSLlight/CSLlight.py). The code is commented and allows to control the frequency and amplitude of the LEDs. Set the parameters: 
+2. Open the python code to see how it works. Open the python code [ControlLight.py](ControlLight/ControlLight.py). The code is commented and allows to control the frequency and amplitude of the LEDs. Set the parameters: 
 The content of interest is after ``if __name__ == __main__:`` 
 - replace the COM port with the one of your set-up ([tutorial](https://www.arduino.cc/en/Guide/ArduinoUno)). 
 - input the correct ports for the LED control. The port 3 and 11 are good choices because they are PWM pins which allow to control the intensity level of the LEDs rather than only ON-OFF. 
@@ -178,7 +178,7 @@ If `analog_value` is zero, no pulse will be generated. If it is 255, a square wa
 Using a PWM is usefull to control the light intensity of the LEDs. The [following example](./test/test2.py) will generate the signal shown in the figure below, with a duty-cycle of ~75% (=192/255).
 
 ```python
-from CSLlight import ControlLight
+from ControlLight import ControlLight
 
 arduino_port = "COM5"
 
@@ -216,7 +216,7 @@ Make a pulse secondary to another pulse.
 When a pulse is defined as secondary to another pulse, it is turned off when the primaty pulse is on. This is useful, for example, when an activation light should be turned off when the mesurement light is turned on. 
 
 ```python
-from CSLlight import ControlLight
+from ControlLight import ControlLight
 
 #arduino_port = "COM5"
 arduino_port = "/dev/ttyACM0"

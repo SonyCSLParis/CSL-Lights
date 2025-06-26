@@ -7,9 +7,9 @@ install_requires = [
 ]
 
 
-setup(name="CSLlight",
+setup(name="ControlLight",
 version="0.0.1",
-description="A class to control cameras interfaced with Micro-Manager",
+description="A class to light sources with a serial interface and microcontroller",
 author="Peter Hanappe, Alienor Lahlou",
 author_email="peter@hanappe.com",
 packages = find_packages(),

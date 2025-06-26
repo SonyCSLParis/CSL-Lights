@@ -8,11 +8,15 @@ Uno this_board_;
 #include "Due.h"
 Due this_board_;
 
+#elif defined(ARDUINO_ARCH_ESP32)
+#include "ESP32.h"
+ESP32Board this_board_;
+
 #else
 #error Unknown board
 #endif
-        
+
 IBoard& BoardFactory::get()
 {
-        return this_board_;
+    return this_board_;
 }
